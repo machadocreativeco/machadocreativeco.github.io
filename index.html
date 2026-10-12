@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfólio de Giovanna Machado, storymaker, fotógrafa e social media: vídeos, galeria, serviços e contato.">
+<title>Portfólio Giovanna Machado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  [hidden]{display:none!important}
+  body{margin:0}
+  img{max-width:100%}
+  :root{
+    /* Layout: portfólio em abas. Hero escuro de ponta a ponta na primeira aba, páginas claras nas demais. */
+    --paper:#f7f5f0; --ink:#181714; --ink2:#56534e; --muted:#6a665f;
+    --line:#d9d5ce; --soft:#eeebe5; --card:#fffefa; --frame:#e7e3db;
+    --on-dark:#f7f5f0; --on-dark-2:#d9d5ce; --kicker:#e9dfc9;
+    --it-green:#1faa5f; --it-red:#d6303c;
+    --display:'Fraunces',Georgia,'Times New Roman',serif;
+    --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --logo:'Anton','Arial Narrow',Impact,sans-serif;
+    --gutter:clamp(20px,4vw,80px);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.04em;margin:0;text-wrap:balance}
+  p{margin:0}
+  :focus-visible{outline:2px solid currentColor;outline-offset:4px}
+  .container{width:100%;max-width:1440px;margin-inline:auto;padding-inline:var(--gutter)}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+  /* Cabeçalho e menu */
+  .site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+  .head-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1.25rem}
+  .brand{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+  .head-note{display:none;font-size:.82rem;color:var(--muted)}
+  .nav{display:flex;gap:1.75rem;overflow-x:auto;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{appearance:none;background:none;border:0;border-bottom:1px solid transparent;margin-bottom:-1px;font:inherit;font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-block:1rem;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+  .nav-btn:hover,.nav-btn[aria-current=page]{color:var(--ink);border-bottom-color:var(--ink)}
+  @media(min-width:768px){.head-note{display:block}.nav{gap:2.5rem}}
+
+  /* Páginas */
+  .page:not([hidden]){animation:enter .45s ease both}
+  @keyframes enter{from{transform:translateY(10px)}to{transform:translateY(0)}}
+  main{padding-bottom:clamp(3rem,6vw,5rem)}
+  .page-body{padding-block:clamp(3rem,6vw,5rem) 0}
+  .section-title{font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.06;margin-block:1.25rem 1.5rem}
+  .lede{max-width:40rem;color:var(--ink2);line-height:1.8}
+  .sub-title{font-size:clamp(1.65rem,2.5vw,2.35rem);line-height:1.16}
+
+  /* Hero */
+  .hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(30rem,72vh,44rem);background:var(--ink);color:var(--on-dark);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 120% at 80% 10%,#4a3f33 0%,#2a241e 38%,#181714 75%)}
+  .hero-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(.62) contrast(1.04)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,15,13,.82) 0%,rgba(16,15,13,.48) 43%,rgba(16,15,13,.18) 100%),linear-gradient(0deg,rgba(16,15,13,.72) 0%,transparent 48%)}
+  .hero-inner{padding-block:6rem 3rem}
+  .hero-content{max-width:30rem}
+  .hero .eyebrow{color:var(--kicker);font-weight:500;letter-spacing:.14em}
+  .hero-copy{max-width:28rem;margin-bottom:1.5rem;font-size:.95rem;line-height:1.7;color:var(--on-dark-2)}
+  .hero-dates{display:flex;flex-direction:column;gap:.15rem;margin-bottom:2rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-2)}
+  .hero-btn{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:.65rem 1.25rem;border:1px solid rgba(247,245,240,.75);border-radius:999px;background:transparent;color:var(--on-dark);font:inherit;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+  .hero-btn:hover{background:var(--on-dark);color:var(--ink);transform:translateY(-2px)}
+
+  /* Logotipo do curso, recriado em texto */
+  .logo{display:inline-flex;flex-direction:column;align-items:center;margin-block:1.5rem;color:var(--on-dark);font-weight:400;letter-spacing:0;line-height:1}
+  .logo-top{font-family:var(--logo);font-size:clamp(2rem,9vw,3.4rem);text-transform:uppercase;white-space:nowrap}
+  .logo-row{display:flex;align-items:center;gap:.6rem;margin-top:.2rem}
+  .logo-in{font-family:var(--display);font-style:italic;font-size:clamp(1.2rem,5vw,1.8rem);letter-spacing:-.04em}
+  .logo-italy{font-family:var(--logo);font-size:clamp(3rem,13.5vw,5.1rem);text-transform:uppercase}
+  .logo-italy .g{color:var(--it-green)}
+  .logo-italy .r{color:var(--it-red)}
+  .logo-year{display:flex;align-items:center;gap:.7rem;width:78%;margin-top:.35rem;font-size:.9rem;letter-spacing:.3em}
+  .logo-year::before,.logo-year::after{content:"";flex:1;height:1px;background:currentColor}
+
+  /* Sobre mim */
+  .about{padding-top:clamp(2.75rem,5vw,4rem)}
+  .about-head{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.25rem}
+  .about-grid{display:grid;gap:2rem;grid-template-columns:minmax(0,1fr)}
+  .portrait{position:relative;min-height:22rem;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--soft);overflow:hidden}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.62)}
+  .bio{display:flex;flex-direction:column;justify-content:center;gap:1.25rem;max-width:36rem;border-top:1px solid var(--line);padding-top:2rem;color:var(--ink2);line-height:1.9}
+  @media(min-width:768px){
+    .about-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:3rem}
+    .portrait{min-height:27rem}
+    .bio{border-top:0;border-left:1px solid var(--line);padding-top:0;padding-left:3rem}
+  }
+
+  /* Vídeos */
+  .video-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,9.5rem),1fr));margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--line)}
+  .video-card{display:flex;flex-direction:column;gap:.7rem;min-width:0;color:inherit;text-decoration:none}
+  .video-poster{position:relative;aspect-ratio:9/16;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .is-live .video-poster{background:radial-gradient(100% 80% at 70% 10%,#4a3f33,#181714 70%);color:var(--on-dark)}
+  .is-empty .video-poster{background:var(--soft);border:1px dashed var(--line)}
+  .play{width:3.6rem;height:3.6rem;display:grid;place-items:center;border:1px solid rgba(247,245,240,.85);border-radius:50%;background:rgba(24,23,20,.82);transition:transform .2s}
+  .is-live:hover .play{transform:scale(1.06)}
+  .poster-tag{position:absolute;left:.9rem;bottom:.9rem;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--kicker)}
+  .video-title{font-size:1.25rem;letter-spacing:-.03em}
+  .video-meta{font-size:.82rem;color:var(--muted)}
+
+  /* Galeria */
+  .gallery{display:flex;flex-direction:column;gap:3.5rem;margin-top:3rem}
+  .gallery-sector{border-top:1px solid var(--line);padding-top:1.75rem}
+  .gallery-sector h2{margin-bottom:1.5rem}
+  .gallery-grid{display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr)}
+  @media(min-width:520px) and (max-width:899px){
+    .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cols-3 .tile:last-child{grid-column:1/-1}
+  }
+  @media(min-width:900px){
+    .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  }
+  .tile{min-width:0;border:1px solid var(--line);background:var(--card);padding:1rem}
+  .tile-frame{position:relative;aspect-ratio:4/3;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;overflow:hidden;background:var(--frame)}
+  .tile-num{font-family:var(--display);font-size:2.4rem;letter-spacing:-.04em;color:var(--muted)}
+  .tile-btn{all:unset;box-sizing:border-box;display:block;width:100%;height:100%;cursor:zoom-in}
+  .tile-btn:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+  .tile-img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.62);transition:transform .7s ease,filter .7s ease}
+  .tile-btn:hover .tile-img{transform:scale(1.035);filter:saturate(.8)}
+  .tile-cap{margin-top:.85rem;padding-top:.85rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+
+  /* Serviços */
+  .pkg-grid{display:grid;gap:1.25rem;grid-template-columns:minmax(0,1fr)}
+  @media(min-width:900px){.pkg-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .pkg{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);background:var(--card);padding:clamp(1.75rem,3vw,2.25rem)}
+  .pkg h2{font-size:clamp(1.65rem,2.5vw,2.35rem);margin-block:3rem 1.25rem}
+  .pkg-desc{margin-bottom:2.5rem;color:var(--ink2);line-height:1.75}
+  .pkg-facts{display:flex;flex-direction:column;gap:1rem;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.92rem}
+  .pkg-facts p:last-child{padding-top:1rem;border-top:1px solid var(--line);font-weight:600}
+  .ph{color:var(--muted);font-style:italic;font-weight:400}
+  .services-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.75rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+  .services-foot p{max-width:36rem;font-size:.92rem;color:var(--muted)}
+
+  /* Contato */
+  .contact-grid{display:grid;gap:3.5rem;grid-template-columns:minmax(0,1fr)}
+  @media(min-width:960px){.contact-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4rem}}
+  .contact-rows{display:flex;flex-direction:column;gap:1.25rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+  .contact-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem}
+  .contact-row .eyebrow{flex:0 0 100%}
+  .contact-val{font-size:1.05rem;overflow-wrap:anywhere}
+  .text-link{appearance:none;background:none;border:0;padding:0;font:inherit;font-size:.88rem;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .muted{color:var(--muted);font-size:.92rem}
+  .form-card{align-self:start;min-width:0;border:1px solid var(--line);background:var(--card);padding:clamp(1.5rem,4vw,2.5rem)}
+  .form-card h2{margin-bottom:2rem}
+  .form-fields{display:flex;flex-direction:column;gap:1.25rem}
+  .form-two{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))}
+  label{display:block;margin-bottom:.45rem;font-size:.88rem;font-weight:600}
+  .field{width:100%;border:1px solid var(--line);border-radius:0;background:var(--card);color:var(--ink);padding:.85rem .95rem;font:inherit}
+  .field::placeholder{color:var(--muted)}
+  .field:focus{outline:1px solid var(--ink);border-color:var(--ink)}
+  textarea.field{min-height:9rem;resize:vertical}
+  .form-status{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+  .closing{margin-top:4rem;padding-top:2.25rem;border-top:1px solid var(--line);max-width:48rem;font-family:var(--display);font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.35;letter-spacing:-.03em;color:var(--ink2)}
+
+  /* Botões */
+  .action{display:inline-flex;align-items:center;justify-content:center;min-height:49px;padding:.75rem 1.5rem;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:inherit;font-size:.82rem;font-weight:600;letter-spacing:.045em;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+  .action:hover{transform:translateY(-2px);background:#37342f}
+  .action[aria-disabled=true]{opacity:.45;cursor:not-allowed;pointer-events:none}
+
+  /* Rodapé */
+  .site-footer{border-top:1px solid var(--line);background:var(--soft)}
+  .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;padding-block:2.25rem;font-size:.78rem;color:var(--muted)}
+  .foot-row strong{color:var(--ink);font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+
+  /* Foto ampliada */
+  .lightbox{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:calc(1.25rem + env(safe-area-inset-top,0px)) 1.25rem calc(1.25rem + env(safe-area-inset-bottom,0px));background:rgba(24,23,20,.96)}
+  .lightbox img{max-width:100%;max-height:72vh;object-fit:contain}
+  .lightbox p{color:var(--on-dark);font-size:.88rem;text-align:center}
+  .lightbox-close{align-self:flex-end;border:0;background:var(--paper);color:var(--ink);padding:.55rem 1.2rem;font:inherit;font-size:.88rem;cursor:pointer}
+
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="container">
+    <div class="head-row">
+      <span class="brand">Storymaker · Fotógrafa · Social media</span>
+      <span class="head-note">Portfólio · Serviços criativos</span>
+    </div>
+    <nav class="nav" aria-label="Páginas do portfólio">
+      <button type="button" class="nav-btn" data-page="inicio" aria-current="page">Início / Sobre mim</button>
+      <button type="button" class="nav-btn" data-page="videos">Storymaker / Vídeos</button>
+      <button type="button" class="nav-btn" data-page="galeria">Galeria de fotos</button>
+      <button type="button" class="nav-btn" data-page="servicos">Serviços e pacotes</button>
+      <button type="button" class="nav-btn" data-page="contato">Contato / Contrate-me</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="page" aria-label="Início e sobre mim">
+    <div class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <img id="hero-photo" class="hero-photo" alt="" hidden>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">Storymaker · Social media · Fotografia</p>
+          <h1 class="logo">
+            <span class="sr-only">Master Injector in Italy 2027</span>
+            <span class="logo-top" aria-hidden="true">Master Injector</span>
+            <span class="logo-row" aria-hidden="true"><span class="logo-in">in</span><span class="logo-italy"><span class="g">IT</span>A<span class="r">LY</span></span></span>
+            <span class="logo-year" aria-hidden="true">2027</span>
+          </h1>
+          <p class="hero-copy">Estarei presente para transformar momentos em narrativas visuais únicas, unindo fotografia, vídeos e conteúdo estratégico.</p>
+          <p class="hero-dates"><span>Itália • 22–30 março 2027</span><span>Cannes • 1–3 abril 2027</span></p>
+          <button type="button" class="hero-btn" data-go="servicos">Conhecer os serviços</button>
+        </div>
+      </div>
+    </div>
+    <div class="container about">
+      <div class="about-head">
+        <p class="eyebrow">Sobre mim</p>
+        <h2 class="sub-title">Giovanna Machado</h2>
+      </div>
+      <div class="about-grid">
+        <div class="portrait" id="portrait">
+          <span class="eyebrow" id="portrait-label">Foto de perfil</span>
+          <img id="portrait-img" alt="Retrato de Giovanna Machado" hidden>
+        </div>
+        <div class="bio">
+          <p>Sou Giovanna Machado, social media, storymaker e fotógrafa. Há 5 anos, sou responsável pela gestão das redes sociais do Dr. Eduardo Crivelenti, unindo estratégia, criatividade e posicionamento digital.</p>
+          <p>Em 2026, estive na Itália realizando a cobertura fotográfica e audiovisual, com conteúdos em tempo real para stories e feed.</p>
+          <p>Meu trabalho une tendências, vídeos dinâmicos e criações com inteligência artificial, transformando momentos em conteúdos criativos, estratégicos e impactantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="page" aria-labelledby="videos-title" hidden>
+    <div class="container page-body">
+      <p class="eyebrow">Reels, stories e vídeos verticais</p>
+      <h1 id="videos-title" class="section-title">Storymaker / Vídeos</h1>
+      <p class="lede">Vídeos verticais criados para redes sociais, com linguagem visual cuidada e narrativa pensada para o feed e os stories.</p>
+      <div class="video-grid" id="video-grid"></div>
+    </div>
+  </section>
+
+  <section id="galeria" class="page" aria-labelledby="galeria-title" hidden>
+    <div class="container page-body">
+      <p class="eyebrow">Olhar editorial</p>
+      <h1 id="galeria-title" class="section-title">Galeria de fotos</h1>
+      <p class="lede">Registros da cobertura fotográfica na Itália, organizados por dia.</p>
+      <div class="gallery">
+        <section class="gallery-sector" aria-labelledby="g-theory">
+          <h2 id="g-theory" class="sub-title">Dia de teoria</h2>
+          <div class="gallery-grid cols-3" id="gallery-theory"></div>
+        </section>
+        <section class="gallery-sector" aria-labelledby="g-practice">
+          <h2 id="g-practice" class="sub-title">Dia de prática</h2>
+          <div class="gallery-grid cols-3" id="gallery-practice"></div>
+        </section>
+        <section class="gallery-sector" aria-labelledby="g-free">
+          <h2 id="g-free" class="sub-title">Dia livre</h2>
+          <div class="gallery-grid cols-4" id="gallery-free"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" class="page" aria-labelledby="servicos-title" hidden>
+    <div class="container page-body">
+      <p class="eyebrow">Formas de colaborar</p>
+      <h1 id="servicos-title" class="section-title">Serviços e pacotes</h1>
+      <p class="lede" style="margin-bottom:3rem">Três estruturas para apresentar o trabalho com clareza. As entregas, os prazos e o investimento são definidos de acordo com cada projeto.</p>
+      <div class="pkg-grid">
+        <article class="pkg">
+          <span class="eyebrow">01 / Estrutura de serviço</span>
+          <h2>Pacote Essencial</h2>
+          <p class="pkg-desc ph">[Descreva aqui o serviço e a quem se destina.]</p>
+          <div class="pkg-facts">
+            <p>Entregas: <span class="ph">[indique o que está incluído]</span></p>
+            <p>Prazo: <span class="ph">[indique o prazo]</span></p>
+            <p>Investimento: <span class="ph">[indique o valor ou sob consulta]</span></p>
+          </div>
+        </article>
+        <article class="pkg">
+          <span class="eyebrow">02 / Estrutura de serviço</span>
+          <h2>Pacote Profissional</h2>
+          <p class="pkg-desc ph">[Descreva aqui o serviço e a quem se destina.]</p>
+          <div class="pkg-facts">
+            <p>Entregas: <span class="ph">[indique o que está incluído]</span></p>
+            <p>Prazo: <span class="ph">[indique o prazo]</span></p>
+            <p>Investimento: <span class="ph">[indique o valor ou sob consulta]</span></p>
+          </div>
+        </article>
+        <article class="pkg">
+          <span class="eyebrow">03 / Estrutura de serviço</span>
+          <h2>Pacote Personalizado</h2>
+          <p class="pkg-desc ph">[Descreva aqui como adapta este serviço a cada projeto.]</p>
+          <div class="pkg-facts">
+            <p>Entregas: <span class="ph">[indique o que está incluído]</span></p>
+            <p>Prazo: <span class="ph">[indique o prazo]</span></p>
+            <p>Investimento: <span class="ph">[indique o valor ou sob consulta]</span></p>
+          </div>
+        </article>
+      </div>
+      <div class="services-foot">
+        <p>Uma proposta clara ajuda a definir objetivos, entregas e próximos passos de acordo com cada projeto.</p>
+        <button type="button" class="action" data-go="contato">Solicitar proposta</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="page" aria-labelledby="contato-title" hidden>
+    <div class="container page-body">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Vamos conversar</p>
+          <h1 id="contato-title" class="section-title">Vamos criar algo com intenção.</h1>
+          <p class="lede">Tem um projeto em mente? Conte o que você procura e qual serviço te interessa. Vai ser um prazer conversar sobre as possibilidades.</p>
+          <div class="contact-rows">
+            <div class="contact-row" id="row-whatsapp" hidden>
+              <span class="eyebrow">WhatsApp</span>
+              <span class="contact-val" id="wa-text"></span>
+              <a class="text-link" id="wa-open" target="_blank" rel="noopener noreferrer">Abrir conversa ↗</a>
+            </div>
+            <div class="contact-row" id="row-email" hidden>
+              <span class="eyebrow">E-mail</span>
+              <span class="contact-val" id="email-text"></span>
+              <button type="button" class="text-link" id="email-copy">Copiar</button>
+            </div>
+            <div class="contact-row" id="row-instagram" hidden>
+              <span class="eyebrow">Instagram</span>
+              <span class="contact-val" id="ig-text"></span>
+              <a class="text-link" id="ig-open" target="_blank" rel="noopener noreferrer">Abrir perfil ↗</a>
+            </div>
+            <p class="muted" id="contact-empty">Os contatos diretos serão adicionados em breve.</p>
+          </div>
+        </div>
+        <form class="form-card" id="contact-form" novalidate>
+          <h2 class="sub-title">Conte-me sobre o projeto</h2>
+          <div class="form-fields">
+            <div class="form-two">
+              <div>
+                <label for="visitor-name">Nome</label>
+                <input id="visitor-name" class="field" autocomplete="name" maxlength="120" placeholder="Seu nome">
+              </div>
+              <div>
+                <label for="interest">Serviço de interesse</label>
+                <select id="interest" class="field">
+                  <option value="">Selecione um pacote</option>
+                  <option value="Pacote Essencial">Pacote Essencial</option>
+                  <option value="Pacote Profissional">Pacote Profissional</option>
+                  <option value="Pacote Personalizado">Pacote Personalizado</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="visitor-message">Mensagem</label>
+              <textarea id="visitor-message" class="field" maxlength="1500" placeholder="Fale sobre a sua ideia, os seus objetivos e o que você procura."></textarea>
+            </div>
+          </div>
+          <div style="margin-top:1.75rem">
+            <a class="action" id="wa-send" target="_blank" rel="noopener noreferrer">Enviar pelo WhatsApp</a>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <p class="closing">Se você estuda na Itália e tem um projeto em mente, entre em contato para conversarmos sobre ele.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container foot-row">
+    <strong>Giovanna Machado</strong>
+    <span>© <span id="year">2026</span> · Storymaker, fotógrafa e social media</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button type="button" class="lightbox-close" id="lightbox-close">Fechar ×</button>
+  <img id="lightbox-img" alt="">
+  <p id="lightbox-caption"></p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ===== Conteúdo editável =====
+     WhatsApp: só números com código do país e DDD, por exemplo 5511999999999.
+     Fotos: PHOTOS[número] = { src: 'endereço ou data URI', alt: 'descrição', caption: 'legenda' }. */
+  var CONTACT = { whatsapp: '', email: '', instagram: '' };
+  var HERO_PHOTO = '';
+  var PORTRAIT = '';
+  var VIDEOS = [
+    { url: 'https://youtube.com/shorts/AMbXSBhpohs' }, {}, {}, {}, {}, {}
+  ];
+  var PHOTOS = {};
+  var SECTORS = [
+    { id: 'theory', start: 1, count: 3 },
+    { id: 'practice', start: 4, count: 3 },
+    { id: 'free', start: 7, count: 4 }
+  ];
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  /* ===== Navegação entre páginas ===== */
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var navBtns = Array.prototype.slice.call(document.querySelectorAll('.nav-btn'));
+  function show(id, scroll) {
+    var target = pages.filter(function (p) { return p.id === id; })[0];
+    if (!target) return;
+    pages.forEach(function (p) { p.hidden = p !== target; });
+    navBtns.forEach(function (b) {
+      if (b.dataset.page === id) b.setAttribute('aria-current', 'page');
+      else b.removeAttribute('aria-current');
+    });
+    if (scroll !== false) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  navBtns.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.page); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-go]'), function (b) {
+    b.addEventListener('click', function () { show(b.dataset.go); });
+  });
+  if (location.hash.length > 1) show(location.hash.slice(1), false);
+
+  /* ===== Fotos do topo e do perfil ===== */
+  if (HERO_PHOTO) {
+    var hp = $('hero-photo');
+    hp.src = HERO_PHOTO;
+    hp.alt = 'Mulher fotografando diante do Duomo de Milão ao entardecer';
+    hp.hidden = false;
+  }
+  if (PORTRAIT) {
+    $('portrait-img').src = PORTRAIT;
+    $('portrait-img').hidden = false;
+    $('portrait-label').hidden = true;
+  }
+
+  /* ===== Vídeos ===== */
+  var playSvg = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+  VIDEOS.forEach(function (v, i) {
+    var ok = false, host = '';
+    try {
+      var u = new URL(v.url || '');
+      ok = u.protocol === 'https:';
+      host = u.hostname.replace(/^www\./, '');
+    } catch (e) {}
+    var isYt = /youtu/.test(host);
+    var card = ok ? el('a', 'video-card is-live') : el('div', 'video-card is-empty');
+    var poster = el('div', 'video-poster');
+    if (ok) {
+      card.href = v.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      var play = el('span', 'play');
+      play.innerHTML = playSvg;
+      poster.appendChild(play);
+      poster.appendChild(el('span', 'poster-tag', isYt ? 'YouTube' : host));
+    } else {
+      poster.appendChild(el('span', 'eyebrow', 'Em breve'));
+    }
+    card.appendChild(poster);
+    card.appendChild(el('h2', 'video-title', v.title || 'Vídeo ' + pad(i + 1)));
+    if (v.caption) card.appendChild(el('p', 'video-meta', v.caption));
+    if (ok) card.appendChild(el('span', 'video-meta', isYt ? 'Assistir no YouTube ↗' : 'Assistir ↗'));
+    $('video-grid').appendChild(card);
+  });
+
+  /* ===== Galeria e foto ampliada ===== */
+  var lb = $('lightbox'), lbImg = $('lightbox-img'), lbCap = $('lightbox-caption'), lbClose = $('lightbox-close');
+  var lastFocus = null;
+  function openLightbox(src, alt, caption) {
+    lastFocus = document.activeElement;
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lbCap.textContent = caption || '';
+    lb.hidden = false;
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
+  });
+
+  SECTORS.forEach(function (s) {
+    var grid = $('gallery-' + s.id);
+    for (var k = 0; k < s.count; k++) {
+      var num = s.start + k;
+      var label = 'Foto ' + pad(num);
+      var p = PHOTOS[num];
+      var tile = el('article', 'tile');
+      var frame = el('div', 'tile-frame');
+      if (p && p.src) {
+        (function (p, label) {
+          var btn = el('button', 'tile-btn');
+          btn.type = 'button';
+          btn.setAttribute('aria-label', 'Ampliar ' + label);
+          var img = el('img', 'tile-img');
+          img.src = p.src;
+          img.alt = p.alt || label;
+          img.loading = 'lazy';
+          btn.appendChild(img);
+          btn.addEventListener('click', function () { openLightbox(p.src, p.alt || label, p.caption || label); });
+          frame.appendChild(btn);
+        })(p, label);
+      } else {
+        frame.appendChild(el('span', 'tile-num', pad(num)));
+        frame.appendChild(el('span', 'eyebrow', 'Foto em breve'));
+      }
+      tile.appendChild(frame);
+      tile.appendChild(el('p', 'tile-cap', (p && p.caption) || label));
+      grid.appendChild(tile);
+    }
+  });
+
+  /* ===== Contato ===== */
+  var wa = CONTACT.whatsapp.replace(/\D/g, '');
+  var anyContact = false;
+  if (wa) {
+    $('row-whatsapp').hidden = false;
+    $('wa-text').textContent = CONTACT.whatsapp;
+    $('wa-open').href = 'https://wa.me/' + wa;
+    anyContact = true;
+  }
+  if (CONTACT.email) {
+    $('row-email').hidden = false;
+    $('email-text').textContent = CONTACT.email;
+    anyContact = true;
+  }
+  if (CONTACT.instagram) {
+    var handle = CONTACT.instagram.replace(/^@/, '');
+    $('row-instagram').hidden = false;
+    $('ig-text').textContent = '@' + handle;
+    $('ig-open').href = 'https://www.instagram.com/' + encodeURIComponent(handle);
+    anyContact = true;
+  }
+  $('contact-empty').hidden = anyContact;
+
+  var copyBtn = $('email-copy');
+  copyBtn.addEventListener('click', function () {
+    function flash(t) { copyBtn.textContent = t; setTimeout(function () { copyBtn.textContent = 'Copiar'; }, 1800); }
+    function selectText() {
+      var r = document.createRange();
+      r.selectNodeContents($('email-text'));
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      flash('Selecionado');
+    }
+    try {
+      navigator.clipboard.writeText(CONTACT.email).then(function () { flash('Copiado'); }, selectText);
+    } catch (e) { selectText(); }
+  });
+
+  var sendLink = $('wa-send'), status = $('form-status');
+  function updateWhatsApp() {
+    var name = $('visitor-name').value.trim();
+    var interest = $('interest').value;
+    var msg = $('visitor-message').value.trim();
+    var text = 'Olá, Giovanna!';
+    if (name) text += ' Me chamo ' + name + '.';
+    if (interest) text += ' Tenho interesse no ' + interest + '.';
+    if (msg) text += '\n\n' + msg;
+    if (wa) {
+      sendLink.href = 'https://wa.me/' + wa + '?text=' + encodeURIComponent(text);
+      sendLink.removeAttribute('aria-disabled');
+      status.textContent = 'O WhatsApp abre com a mensagem pronta. Você confirma o envio por lá.';
+    } else {
+      sendLink.removeAttribute('href');
+      sendLink.setAttribute('aria-disabled', 'true');
+      status.textContent = 'O envio pelo WhatsApp será ativado quando o número for adicionado ao site.';
+    }
+  }
+  ['visitor-name', 'interest', 'visitor-message'].forEach(function (id) {
+    $(id).addEventListener('input', updateWhatsApp);
+    $(id).addEventListener('change', updateWhatsApp);
+  });
+  $('contact-form').addEventListener('submit', function (e) { e.preventDefault(); });
+  updateWhatsApp();
+
+  $('year').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
